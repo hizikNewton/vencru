@@ -1,5 +1,7 @@
 export { default as Bar } from "./Bar";
+export { default as ChecboxNotCheck } from "./ChecboxNotCheck";
 export { default as Check } from "./Check";
+export { default as Checkboxbase } from "./Checkboxbase";
 export { default as Download } from "./Download";
 export { default as Flag } from "./Flag";
 export { default as Home } from "./Home";
@@ -7,5 +9,7 @@ export { default as Layers } from "./Layers";
 export { default as Lifebuoy } from "./Lifebuoy";
 export { default as Logout } from "./Logout";
 export { default as Mail } from "./Mail";
+export { default as Plus } from "./Plus";
+export { default as Search } from "./Search";
 export { default as Settings } from "./Settings";
 export { default as User } from "./User";

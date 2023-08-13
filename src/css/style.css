@@ -6,4 +6,14 @@
   .settings-block {
     @apply my-6;
   }
+  .checkbox-group-item{
+    @apply relative flex justify-between w-full p-4 bg-white border rounded-lg;
+    
+  }
+  .checkbox{
+      @apply absolute top-0 w-full h-full;
+  }
+  .cardImg{
+    @apply w-12 h-8 border border-gray-100 rounded-md
+  }
 }
