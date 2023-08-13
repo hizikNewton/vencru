@@ -1,45 +1,52 @@
-type group = "main" | "others";
+import { IconType } from '@components/icons/Icons';
+
+type group = 'main' | 'others';
 interface Route {
   name: string;
   path: string;
-  icon: string;
+  icon: IconType;
 }
 type RouteGroup = Record<group, Array<Route>>;
 
 export const routes: RouteGroup = {
   main: [
-    { name: "Home", path: "/", icon: "" },
+    { name: 'Home', path: '/', icon: 'home' },
     {
-      name: "Dashboard",
-      path: "/",
-      icon: "",
+      name: 'Dashboard',
+      path: '/',
+      icon: 'bar',
     },
     {
-      name: "Projects",
-      path: "/",
-      icon: "",
+      name: 'Projects',
+      path: '/',
+      icon: 'layers',
     },
     {
-      name: "Tasks",
-      path: "/",
-      icon: "",
+      name: 'Tasks',
+      path: '/',
+      icon: 'layers',
     },
     {
-      name: "Home",
-      path: "/",
-      icon: "",
+      name: 'Reporting',
+      path: '/',
+      icon: 'flags',
+    },
+    {
+      name: 'Users',
+      path: '/',
+      icon: 'users',
     },
   ],
   others: [
     {
-      name: "Support",
-      path: "/",
-      icon: "",
+      name: 'Support',
+      path: '/',
+      icon: 'lifebuoy',
     },
     {
-      name: "Settings",
-      path: "/",
-      icon: "",
+      name: 'Settings',
+      path: '/',
+      icon: 'setting',
     },
   ],
 };
