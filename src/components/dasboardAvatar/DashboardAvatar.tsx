@@ -24,10 +24,10 @@ export const DashboardAvatar: FC<DashboardAvatarProps> = ({ count }) => {
       <ul className="-ml-px mb-8 flex flex-wrap justify-center -space-x-3 sm:mb-0 sm:justify-start">
         {Array(count)
           .fill(0)
-          .map((i) => {
+          .map((i, idx) => {
             const rand = Math.floor(Math.random() * 5);
             return (
-              <li key={`user${i}${rand}`}>
+              <li key={`user${i}${rand}${idx}`}>
                 <Link className="block" to="#0">
                   <img
                     className="h-9 w-9 rounded-full"

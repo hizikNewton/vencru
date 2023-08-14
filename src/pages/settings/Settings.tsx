@@ -41,8 +41,8 @@ const Settings: FC = () => {
           </p>
         </div>
         <nav className="bg-white border border-gray-300 rounded-lg md:shadow w-fit no-scrollbar mobile-nav ">
-          {options.map((name) => (
-            <button className="px-4 py-2.5 border-r leading-tight" key={name}>
+          {options.map((name, idx) => (
+            <button className="px-4 py-2.5 border-r leading-tight" key={`${name}-${idx}`}>
               <span className="text-sm font-medium leading-tight text-slate-700">
                 {name}
               </span>
@@ -191,8 +191,8 @@ const Settings: FC = () => {
                 <span>
                   <Icon
                     name={`${card === "mastercard"
-                        ? "checkboxCheck"
-                        : "checkboxNotCheck"
+                      ? "checkboxCheck"
+                      : "checkboxNotCheck"
                       }`}
                   />
                 </span>
