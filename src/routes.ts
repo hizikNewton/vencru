@@ -1,52 +1,54 @@
-import { IconType } from "@components/icons/Icons";
+import { IconType } from '@components/icons/Icons';
 
-type group = "main" | "others";
+type group = 'main' | 'others';
 interface Route {
   name: string;
   path: string;
   icon: IconType;
+  badge?: boolean;
 }
 type RouteGroup = Record<group, Array<Route>>;
 
 export const routes: RouteGroup = {
   main: [
-    { name: "Home", path: "/", icon: "home" },
+    { name: 'Home', path: '/home', icon: 'home' },
     {
-      name: "Dashboard",
-      path: "/",
-      icon: "bar",
+      name: 'Dashboard',
+      path: '/dashboard',
+      icon: 'bar',
+      badge: true,
     },
     {
-      name: "Projects",
-      path: "/",
-      icon: "layers",
+      name: 'Projects',
+      path: '/projects',
+      icon: 'layers',
     },
     {
-      name: "Tasks",
-      path: "/",
-      icon: "layers",
+      name: 'Tasks',
+      path: '/tasks',
+      icon: 'layers',
     },
     {
-      name: "Reporting",
-      path: "/",
-      icon: "flags",
+      name: 'Reporting',
+      path: '/reporting',
+      icon: 'flags',
     },
     {
-      name: "Users",
-      path: "/",
-      icon: "users",
+      name: 'Users',
+      path: '/users',
+      icon: 'users',
     },
   ],
   others: [
     {
-      name: "Support",
-      path: "/",
-      icon: "lifebuoy",
+      name: 'Support',
+      path: '/support',
+      icon: 'lifebuoy',
     },
     {
-      name: "Settings",
-      path: "/",
-      icon: "setting",
+      name: 'Settings',
+      path: '/settings',
+      icon: 'setting',
     },
   ],
 };

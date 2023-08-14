@@ -21,8 +21,8 @@ function App() {
     <Routes>
       <Route path="" element={<Layout />}>
         <Route path={"settings"} element={<Settings />} />
-        {routeObj.map(({ name }) => (
-          <Route element={<Dashboard name={name} />} />
+        {routeObj.map(({ name, path }) => (
+          <Route path={path} element={<Dashboard name={name} />} />
         ))}
         <Route path={""} element={<Navigate to="settings" replace />} />
       </Route>

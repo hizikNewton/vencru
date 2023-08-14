@@ -8,7 +8,7 @@ interface ButtonProp {
 
 const Button: FC<ButtonProp> = ({ iconName, label, className }) => {
   return (
-    <button className={`text-sm font-medium leading-tight ${className}`}>
+    <button type='button' className={`text-sm font-medium leading-tight ${className}`}>
       <span>
         {iconName && <Icon name={iconName} className="inline-flex" />}
       </span>

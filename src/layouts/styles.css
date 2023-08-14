@@ -1,0 +1,12 @@
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    display: none;
+  }
+  main {
+    margin-left: 0 !important;
+  }
+  .main-container {
+    padding: 16px;
+  }
+}

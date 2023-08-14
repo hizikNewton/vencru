@@ -1,54 +1,44 @@
-import User01 from "@assets/images/Avatar.png";
-import User02 from "@assets/images/Avatar2.png";
-import User04 from "@assets/images/Avatar3.png";
+import User0 from "@assets/images/Avatar.png";
+import User1 from "@assets/images/Avatar1.png";
+import User2 from "@assets/images/Avatar2.png";
+import User3 from "@assets/images/Avatar3.png";
+import User4 from "@assets/images/Avatar4.png";
 import { FC } from "react";
 import { Link } from "react-router-dom";
 
-export const DashboardAvatar: FC = () => {
+interface DashboardAvatarProps {
+  count: number
+}
+
+export const DashboardAvatar: FC<DashboardAvatarProps> = ({ count }) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const UserObj: { [x: number]: any } = {
+    0: User0,
+    1: User1,
+    2: User2,
+    3: User3,
+    4: User4
+  }
   return (
     <>
       <ul className="-ml-px mb-8 flex flex-wrap justify-center -space-x-3 sm:mb-0 sm:justify-start">
-        <li>
-          <Link className="block" to="#0">
-            <img
-              className="h-9 w-9 rounded-full"
-              src={User01}
-              width="36"
-              height="36"
-              alt="User 01"
-            />
-          </Link>
-        </li>
-        <li>
-          <Link className="block" to="#0">
-            <img
-              className="h-9 w-9 rounded-full"
-              src={User02}
-              width="36"
-              height="36"
-              alt="User 02"
-            />
-          </Link>
-        </li>
-        <li>
-          <Link className="block" to="#0">
-            <img
-              className="h-9 w-9 rounded-full"
-              src={User04}
-              width="36"
-              height="36"
-              alt="User 04"
-            />
-          </Link>
-        </li>
-        <li>
-          <button className="ml-2 flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-indigo-500 shadow-sm transition duration-150 hover:border-slate-300 dark:border-slate-700 dark:bg-slate-800 dark:hover:border-slate-600">
-            <span className="sr-only">Add new user</span>
-            <svg className="h-4 w-4 fill-current" viewBox="0 0 16 16">
-              <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
-            </svg>
-          </button>
-        </li>
+        {Array(count).fill(0).map(i => {
+          const rand = Math.floor(Math.random() * 5)
+          return (
+            <li key={`User${i}`}>
+              <Link className="block" to="#0">
+                <img
+                  className="h-9 w-9 rounded-full"
+                  src={UserObj[rand]}
+                  width="36"
+                  height="36"
+                  alt="User 01"
+                />
+              </Link>
+            </li>)
+        })
+        }
+
       </ul>
     </>
   );

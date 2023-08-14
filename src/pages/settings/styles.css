@@ -1,0 +1,12 @@
+@media screen and (max-width: 768px) {
+  .mobile-nav {
+    display: flex;
+    overflow: scroll;
+    width: 100%;
+    border-radius: 0;
+  }
+  .card-details,
+  .contact-email {
+    flex-direction: column;
+  }
+}

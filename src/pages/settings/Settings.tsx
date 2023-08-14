@@ -1,14 +1,16 @@
-import { FC } from "react";
-import { Table } from "./DataTable";
+import { ChangeEvent, FC, useState } from "react";
+import { Table } from "./components/DataTable";
 import Divider from "@components/divider";
-import Icon from "@components/icons/Icons";
 import Visa from "@assets/images/Visa.png";
 import Mastercard from "@assets/images/Mastercard.png";
 import Button from "@components/button";
+import './styles.css'
+import { InputBox } from "./components/InputBox";
+import Icon from "@components/icons/Icons";
 
 const Settings: FC = () => {
   const options: Array<string> = [
-    "My details",
+
     "Profile",
     "Password",
     "Team",
@@ -16,10 +18,23 @@ const Settings: FC = () => {
     "Billing",
     "Notification",
     "integration",
+    "My details",
     "Api",
   ];
+  const [active, setActive] = useState("email")
+  const [card, setCard] = useState("visa")
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target
+    setActive(value)
+  }
+  const handleCard = (e: ChangeEvent<HTMLInputElement>) => {
+
+    const { value } = e.target
+    console.log(value, "hi")
+    setCard(value)
+  }
   return (
-    <div className="flex flex-col p-10 gap-y-8">
+    <>
       <header className="flex flex-col gap-y-6">
         <div>
           <h3 className="text-3xl font-medium text-gray-900">Settings</h3>
@@ -27,7 +42,7 @@ const Settings: FC = () => {
             Manage your team and preference here
           </p>
         </div>
-        <nav className="bg-white border border-gray-300 rounded-lg shadow w-fit">
+        <nav className="bg-white border border-gray-300 rounded-lg md:shadow w-fit no-scrollbar mobile-nav ">
           {options.map((name) => (
             <button className="px-4 py-2.5 border-r leading-tight">
               <span className="text-sm font-medium leading-tight text-slate-700">
@@ -49,7 +64,7 @@ const Settings: FC = () => {
         <Divider className="mt-5 mb-6" />
         <form>
           <div className="flex gap-8 contact-email">
-            <legend className="w-1/4">
+            <legend className="md:w-1/4">
               <h4 className="text-sm font-medium leading-tight text-slate-700">
                 Contact email
               </h4>
@@ -58,44 +73,35 @@ const Settings: FC = () => {
               </p>
             </legend>
 
-            <div className="flex flex-col w-2/4 flex-shrink-1 gap-y-4 ">
+            <div className="flex flex-col md:w-2/4 flex-shrink-1 gap-y-4 ">
               <div className="flex w-full gap-x-2">
-                <input className="w-4 h-4" type="radio" />
+                <input className="w-4 h-4 accent-purple-500" type="radio" value="account" onChange={handleChange} name="contactEmail" />
                 <label>
                   <p className="text-sm font-medium leading-tight text-slate-700">
                     Send to my account
                   </p>
-                  <p className="text-sm font-normal text-gray-500">
+                  {active === "account" ? <InputBox /> : <p className="text-sm font-normal text-gray-500">
                     olivia@untitledui.com
-                  </p>
+                  </p>}
                 </label>
               </div>
-              <div className="input-group">
-                <div className="flex gap-x-2">
-                  <input className="w-4 h-4" type="radio" />
-                  <label>
-                    <p className="text-sm font-medium leading-tight text-slate-700">
-                      Send to an alternative email
-                    </p>
-                    <p className="text-sm font-normal text-gray-500">
-                      olivia@untitledui.com
-                    </p>
-                  </label>
-                </div>
-                <div className="relative pl-6 mt-3">
-                  <Icon name="mail" className="absolute top-4 left-10 " />
-                  <input
-                    className="rounded border w-full pr-3.5 pl-10 py-2.5"
-                    placeholder="billing@untitledui.com"
-                  ></input>
-                </div>
+              <div className="flex gap-x-2">
+                <input className="w-4 h-4  accent-purple-500" type="radio" value="email" onChange={handleChange} name="contactEmail" />
+                <label>
+                  <p className="text-sm font-medium leading-tight text-slate-700">
+                    Send to an alternative email
+                  </p>
+                  {active === "email" ? <InputBox /> : <p className="text-sm font-normal text-gray-500">
+                    olivia@untitledui.com
+                  </p>}
+                </label>
               </div>
             </div>
             <div className="w-1/4 empty"></div>
           </div>
           <Divider className="my-5" />
           <div className="flex gap-4 card-details">
-            <legend className="border flex-shrink-1 basis-1/4">
+            <legend className=" flex-shrink-1 md:basis-1/4">
               <h4 className="text-sm font-medium leading-tight text-slate-700">
                 Card details
               </h4>
@@ -104,8 +110,8 @@ const Settings: FC = () => {
               </p>
             </legend>
             <div className="flex flex-col flex-grow gap-y-4">
-              <div className="checkbox-group-item visa-card">
-                <input type="checkbox" className="checkbox" name="card" />
+              <div className={`checkbox-group-item visa-card hover:border-purple-300 hover:bg-purple-50 ${card === "visa" ? "active-card" : ""}`}>
+                <input type="radio" className="checkbox opacity-0" name="card" onChange={handleCard} value="visa" />
                 <label className="flex gap-x-3 h-fit" htmlFor="card">
                   <div className="cardImg">
                     <img src={Visa} alt="visa-card" />
@@ -121,14 +127,13 @@ const Settings: FC = () => {
                     <Button className="ml-3 text-violet-700" label="Edit" />
                   </div>
                 </label>
-                <span>icon</span>
+                <span><Icon name={`${card === "visa" ? "checkboxCheck" : "checkboxNotCheck"}`} /></span>
               </div>
-              <div className="checkbox-group-item mastercard">
-                <input type="checkbox" className="checkbox" name="card" />
+              <div className={`checkbox-group-item mastercard  hover:border-purple-300 hover:bg-purple-50 ${card === "mastercard" ? "active-card" : ""}`}>
+                <input type="radio" className="checkbox opacity-0" onChange={handleCard} value="mastercard" name="card " />
                 <label className="flex gap-x-3 h-fit" htmlFor="card">
                   <div className="cardImg">
-                    {" "}
-                    <img src={Mastercard} />{" "}
+                    <img src={Mastercard} />
                   </div>
                   <div>
                     <p className="text-sm font-medium leading-tight text-slate-700">
@@ -141,7 +146,8 @@ const Settings: FC = () => {
                     <Button className="ml-3 text-violet-700" label="Edit" />
                   </div>
                 </label>
-                <span>icon</span>
+
+                <span><Icon name={`${card === "mastercard" ? "checkboxCheck" : "checkboxNotCheck"}`} /></span>
               </div>
 
               <div className="add-payment">
@@ -168,7 +174,7 @@ const Settings: FC = () => {
         </div>
         <Table />
       </div>
-    </div>
+    </>
   );
 };
 

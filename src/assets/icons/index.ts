@@ -9,6 +9,7 @@ export { default as Layers } from "./Layers";
 export { default as Lifebuoy } from "./Lifebuoy";
 export { default as Logout } from "./Logout";
 export { default as Mail } from "./Mail";
+export { default as Menu } from "./Menu";
 export { default as Plus } from "./Plus";
 export { default as Search } from "./Search";
 export { default as Settings } from "./Settings";
