@@ -21,7 +21,7 @@ export const DashboardAvatar: FC<DashboardAvatarProps> = ({ count }) => {
   };
   return (
     <>
-      <ul className="-ml-px mb-8 flex flex-wrap justify-center -space-x-3 sm:mb-0 sm:justify-start">
+      <ul className="-ml-px mb-8 flex justify-center -space-x-3 sm:mb-0 sm:justify-start">
         {Array(count)
           .fill(0)
           .map((i, idx) => {

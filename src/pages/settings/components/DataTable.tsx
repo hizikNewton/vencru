@@ -39,7 +39,7 @@ export const Table: FC = () => {
                   className="px-6 py-3"
                   onClick={() => handleSortBy("invoice")}
                 >
-                  <div className="text-left flex items-center gap-x-3">
+                  <div className="text-left w-full flex items-center gap-x-3">
                     <input type="checkbox" className="pl-2 w-5 h-5" />
                     Invoice
                     <SortButton
@@ -53,7 +53,7 @@ export const Table: FC = () => {
                 <th className="">
                   <div className="text-left font-semibold">Amount</div>
                 </th>
-                <th className="">
+                <th className="whitespace-nowrap">
                   <div className="text-left font-semibold">Date</div>
                 </th>
                 <th className="">
@@ -78,21 +78,21 @@ export const Table: FC = () => {
                         {invoice}
                       </div>
                     </th>
-                    <td className="">
+                    <td className='whitespace-nowrap'>
                       <div>{`USD $${amount}`}</div>
                     </td>
-                    <td className="">
+                    <td className="'whitespace-nowrap">
                       <div className="text-left">{date}</div>
                     </td>
-                    <td className="">
+                    <td className="'whitespace-nowrap">
                       <div className="text-left">{status}</div>
                     </td>
-                    <td className="">
+                    <td className="'whitespace-nowrap">
                       <div className="text-left text-sky-500">
                         <DashboardAvatars count={usersOnPlan} />
                       </div>
                     </td>
-                    <td className="">
+                    <td className="'whitespace-nowrap">
                       <div className="text-center">
                         <Icon name="download" />
                       </div>
