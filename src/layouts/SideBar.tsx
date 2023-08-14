@@ -30,6 +30,7 @@ const SideBar: FC = () => {
       <div className="sidebar-main-nav">
         {main.map(({ name, icon, path, badge }) => (
           <NavLink
+            key={path}
             className={`flex px-3 justify-between py-2 hover:bg-gray-50 ${({
               isActive,
             }) => (isActive ? "active" : "")}

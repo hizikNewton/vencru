@@ -11,7 +11,7 @@ interface MobileNavContextType {
 
 export const MobileNavContext = createContext<MobileNavContextType>({
   open: false,
-  toggle: () => {},
+  toggle: () => { },
 });
 
 const Layout = () => {

@@ -42,7 +42,7 @@ const Settings: FC = () => {
         </div>
         <nav className="bg-white border border-gray-300 rounded-lg md:shadow w-fit no-scrollbar mobile-nav ">
           {options.map((name) => (
-            <button className="px-4 py-2.5 border-r leading-tight">
+            <button className="px-4 py-2.5 border-r leading-tight" key={name}>
               <span className="text-sm font-medium leading-tight text-slate-700">
                 {name}
               </span>
@@ -129,9 +129,8 @@ const Settings: FC = () => {
             </legend>
             <div className="flex flex-col flex-grow gap-y-4">
               <div
-                className={`checkbox-group-item visa-card hover:border-purple-300 hover:bg-purple-50 ${
-                  card === "visa" ? "active-card" : ""
-                }`}
+                className={`checkbox-group-item visa-card hover:border-purple-300 hover:bg-purple-50 ${card === "visa" ? "active-card" : ""
+                  }`}
               >
                 <input
                   type="radio"
@@ -157,16 +156,14 @@ const Settings: FC = () => {
                 </label>
                 <span>
                   <Icon
-                    name={`${
-                      card === "visa" ? "checkboxCheck" : "checkboxNotCheck"
-                    }`}
+                    name={`${card === "visa" ? "checkboxCheck" : "checkboxNotCheck"
+                      }`}
                   />
                 </span>
               </div>
               <div
-                className={`checkbox-group-item mastercard  hover:border-purple-300 hover:bg-purple-50 ${
-                  card === "mastercard" ? "active-card" : ""
-                }`}
+                className={`checkbox-group-item mastercard  hover:border-purple-300 hover:bg-purple-50 ${card === "mastercard" ? "active-card" : ""
+                  }`}
               >
                 <input
                   type="radio"
@@ -193,11 +190,10 @@ const Settings: FC = () => {
 
                 <span>
                   <Icon
-                    name={`${
-                      card === "mastercard"
+                    name={`${card === "mastercard"
                         ? "checkboxCheck"
                         : "checkboxNotCheck"
-                    }`}
+                      }`}
                   />
                 </span>
               </div>

@@ -71,7 +71,7 @@ export const Table: FC = () => {
             <tbody className="divide-y divide-slate-100 text-sm font-medium dark:divide-slate-700">
               {tableData.map(
                 ({ invoice, amount, date, status, usersOnPlan }) => (
-                  <tr>
+                  <tr key={status}>
                     <th className="px-6 py-3">
                       <div className="text-left flex items-center gap-x-3">
                         <input type="checkbox" className="pl-2 w-5 h-5" />
