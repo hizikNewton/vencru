@@ -7,7 +7,7 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 
 interface DashboardAvatarProps {
-  count: number
+  count: number;
 }
 
 export const DashboardAvatar: FC<DashboardAvatarProps> = ({ count }) => {
@@ -17,28 +17,29 @@ export const DashboardAvatar: FC<DashboardAvatarProps> = ({ count }) => {
     1: User1,
     2: User2,
     3: User3,
-    4: User4
-  }
+    4: User4,
+  };
   return (
     <>
       <ul className="-ml-px mb-8 flex flex-wrap justify-center -space-x-3 sm:mb-0 sm:justify-start">
-        {Array(count).fill(0).map(i => {
-          const rand = Math.floor(Math.random() * 5)
-          return (
-            <li key={`User${i}`}>
-              <Link className="block" to="#0">
-                <img
-                  className="h-9 w-9 rounded-full"
-                  src={UserObj[rand]}
-                  width="36"
-                  height="36"
-                  alt="User 01"
-                />
-              </Link>
-            </li>)
-        })
-        }
-
+        {Array(count)
+          .fill(0)
+          .map((i) => {
+            const rand = Math.floor(Math.random() * 5);
+            return (
+              <li key={`user${i}${rand}`}>
+                <Link className="block" to="#0">
+                  <img
+                    className="h-9 w-9 rounded-full"
+                    src={UserObj[rand]}
+                    width="36"
+                    height="36"
+                    alt="User 01"
+                  />
+                </Link>
+              </li>
+            );
+          })}
       </ul>
     </>
   );

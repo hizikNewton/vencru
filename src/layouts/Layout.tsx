@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, createContext, useState } from "react";
 import { Outlet } from "react-router-dom";
 import SideBar from "./components/sidebar";
 import MobileHeader from "./components/MobileHeader";
-import './styles.css'
+import "./styles.css";
 
 interface MobileNavContextType {
   open: boolean;
@@ -11,7 +11,7 @@ interface MobileNavContextType {
 
 export const MobileNavContext = createContext<MobileNavContextType>({
   open: false,
-  toggle: () => { },
+  toggle: () => {},
 });
 
 const Layout = () => {

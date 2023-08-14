@@ -4,13 +4,12 @@ import Divider from "@components/divider";
 import Visa from "@assets/images/Visa.png";
 import Mastercard from "@assets/images/Mastercard.png";
 import Button from "@components/button";
-import './styles.css'
+import "./styles.css";
 import { InputBox } from "./components/InputBox";
 import Icon from "@components/icons/Icons";
 
 const Settings: FC = () => {
   const options: Array<string> = [
-
     "Profile",
     "Password",
     "Team",
@@ -21,18 +20,17 @@ const Settings: FC = () => {
     "My details",
     "Api",
   ];
-  const [active, setActive] = useState("email")
-  const [card, setCard] = useState("visa")
+  const [active, setActive] = useState("email");
+  const [card, setCard] = useState("visa");
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target
-    setActive(value)
-  }
+    const { value } = e.target;
+    setActive(value);
+  };
   const handleCard = (e: ChangeEvent<HTMLInputElement>) => {
-
-    const { value } = e.target
-    console.log(value, "hi")
-    setCard(value)
-  }
+    const { value } = e.target;
+    console.log(value, "hi");
+    setCard(value);
+  };
   return (
     <>
       <header className="flex flex-col gap-y-6">
@@ -75,25 +73,45 @@ const Settings: FC = () => {
 
             <div className="flex flex-col md:w-2/4 flex-shrink-1 gap-y-4 ">
               <div className="flex w-full gap-x-2">
-                <input className="w-4 h-4 accent-purple-500" type="radio" value="account" onChange={handleChange} name="contactEmail" />
+                <input
+                  className="w-4 h-4 accent-purple-500"
+                  type="radio"
+                  value="account"
+                  onChange={handleChange}
+                  name="contactEmail"
+                />
                 <label>
                   <p className="text-sm font-medium leading-tight text-slate-700">
                     Send to my account
                   </p>
-                  {active === "account" ? <InputBox /> : <p className="text-sm font-normal text-gray-500">
-                    olivia@untitledui.com
-                  </p>}
+                  {active === "account" ? (
+                    <InputBox />
+                  ) : (
+                    <p className="text-sm font-normal text-gray-500">
+                      olivia@untitledui.com
+                    </p>
+                  )}
                 </label>
               </div>
               <div className="flex gap-x-2">
-                <input className="w-4 h-4  accent-purple-500" type="radio" value="email" onChange={handleChange} name="contactEmail" />
+                <input
+                  className="w-4 h-4  accent-purple-500"
+                  type="radio"
+                  value="email"
+                  onChange={handleChange}
+                  name="contactEmail"
+                />
                 <label>
                   <p className="text-sm font-medium leading-tight text-slate-700">
                     Send to an alternative email
                   </p>
-                  {active === "email" ? <InputBox /> : <p className="text-sm font-normal text-gray-500">
-                    olivia@untitledui.com
-                  </p>}
+                  {active === "email" ? (
+                    <InputBox />
+                  ) : (
+                    <p className="text-sm font-normal text-gray-500">
+                      olivia@untitledui.com
+                    </p>
+                  )}
                 </label>
               </div>
             </div>
@@ -110,8 +128,18 @@ const Settings: FC = () => {
               </p>
             </legend>
             <div className="flex flex-col flex-grow gap-y-4">
-              <div className={`checkbox-group-item visa-card hover:border-purple-300 hover:bg-purple-50 ${card === "visa" ? "active-card" : ""}`}>
-                <input type="radio" className="checkbox opacity-0" name="card" onChange={handleCard} value="visa" />
+              <div
+                className={`checkbox-group-item visa-card hover:border-purple-300 hover:bg-purple-50 ${
+                  card === "visa" ? "active-card" : ""
+                }`}
+              >
+                <input
+                  type="radio"
+                  className="checkbox opacity-0"
+                  name="card"
+                  onChange={handleCard}
+                  value="visa"
+                />
                 <label className="flex gap-x-3 h-fit" htmlFor="card">
                   <div className="cardImg">
                     <img src={Visa} alt="visa-card" />
@@ -127,10 +155,26 @@ const Settings: FC = () => {
                     <Button className="ml-3 text-violet-700" label="Edit" />
                   </div>
                 </label>
-                <span><Icon name={`${card === "visa" ? "checkboxCheck" : "checkboxNotCheck"}`} /></span>
+                <span>
+                  <Icon
+                    name={`${
+                      card === "visa" ? "checkboxCheck" : "checkboxNotCheck"
+                    }`}
+                  />
+                </span>
               </div>
-              <div className={`checkbox-group-item mastercard  hover:border-purple-300 hover:bg-purple-50 ${card === "mastercard" ? "active-card" : ""}`}>
-                <input type="radio" className="checkbox opacity-0" onChange={handleCard} value="mastercard" name="card " />
+              <div
+                className={`checkbox-group-item mastercard  hover:border-purple-300 hover:bg-purple-50 ${
+                  card === "mastercard" ? "active-card" : ""
+                }`}
+              >
+                <input
+                  type="radio"
+                  className="checkbox opacity-0"
+                  onChange={handleCard}
+                  value="mastercard"
+                  name="card"
+                />
                 <label className="flex gap-x-3 h-fit" htmlFor="card">
                   <div className="cardImg">
                     <img src={Mastercard} />
@@ -147,7 +191,15 @@ const Settings: FC = () => {
                   </div>
                 </label>
 
-                <span><Icon name={`${card === "mastercard" ? "checkboxCheck" : "checkboxNotCheck"}`} /></span>
+                <span>
+                  <Icon
+                    name={`${
+                      card === "mastercard"
+                        ? "checkboxCheck"
+                        : "checkboxNotCheck"
+                    }`}
+                  />
+                </span>
               </div>
 
               <div className="add-payment">

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
+import React from "react";
 
 /**
  * Sorts an array of objects, either in ascending or descending order, based on
@@ -19,8 +19,8 @@ type configType = {
 
 const sortTableData = (array: [], { key, direction }: configType) => {
   return array.sort((a, b) => {
-    if (a[key] < b[key]) return direction === 'ascending' ? -1 : 1;
-    if (a[key] > b[key]) return direction === 'ascending' ? 1 : -1;
+    if (a[key] < b[key]) return direction === "ascending" ? -1 : 1;
+    if (a[key] > b[key]) return direction === "ascending" ? 1 : -1;
     return 0;
   });
 };
@@ -53,13 +53,13 @@ const useSortableData = ({
   }, [items, sortConfig]);
 
   const requestSort = (key) => {
-    let direction = 'descending';
+    let direction = "descending";
     if (
       sortConfig &&
       sortConfig.key === key &&
-      sortConfig?.direction === 'descending'
+      sortConfig?.direction === "descending"
     ) {
-      direction = 'ascending';
+      direction = "ascending";
     }
 
     setSortConfig({ key, direction });
