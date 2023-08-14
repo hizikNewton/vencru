@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { routes } from "../routes";
 import Icon from "@components/icons/Icons";
 import Logo from "@assets/images/Logo.png";
@@ -9,14 +9,15 @@ import { NavLink } from "react-router-dom";
 import Badge from "@components/badge";
 
 import Button from "@components/button";
+import { MobileNavContext } from "./Layout";
 
 const SideBar: FC = () => {
   const { main, others } = routes;
-
+  const { open } = useContext(MobileNavContext)
   return (
-    <div className="sidebar flex flex-col flex-shrink-0 h-screen px-4 py-6 border w-72 gap-y-6 overflow-hidden  md:fixed">
-      <div className="px-4 sidebar-logo">
-        <div className="mb-4">
+    <div className={`sidebar flex flex-col flex-shrink-0 h-screen px-4 py-6 border w-72 gap-y-6 overflow-hidden  md:fixed ${open ? "open" : ""}`} >
+      <div className="px-4 sidebar-logo ">
+        <div className="mb-4 ">
           <img src={Logo} />
         </div>
         <label className="relative ">
@@ -99,7 +100,7 @@ const SideBar: FC = () => {
           <Icon name="logout" />
         </button>
       </div>
-    </div>
+    </div >
   );
 };
 

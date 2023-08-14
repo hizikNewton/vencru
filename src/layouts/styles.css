@@ -1,7 +1,13 @@
 @media screen and (max-width: 768px) {
   .sidebar {
+    background-color: white;
     position: absolute;
-    display: none;
+    z-index: 4;
+    overflow-y: scroll;
+    top: 0;
+  }
+  .open {
+    left: -24rem;
   }
   main {
     margin-left: 0 !important;

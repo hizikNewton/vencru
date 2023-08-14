@@ -13,6 +13,7 @@ import {
   ChecboxNotCheck,
   Checkboxbase,
   Search,
+  Menu,
 } from "@assets/icons";
 import React, { FC } from "react";
 
@@ -39,6 +40,7 @@ const Icons = {
   checkboxNotCheck: <ChecboxNotCheck />,
   checkboxCheck: <Checkboxbase />,
   search: <Search />,
+  mobileMenu: <Menu />
 };
 const Icon: FC<IconProps> = ({ name, className, width = 24, height = 24 }) => {
   // Import or define your SVG icons as React components
